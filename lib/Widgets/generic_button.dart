@@ -38,11 +38,7 @@ class GenericButtonState extends State <GenericButton>
     {
         return Container
         (
-            margin: EdgeInsets.only
-            (
-                top: 20.0,
-                bottom: 20.0
-            ),
+            margin: EdgeInsets.only(top: 40.0, bottom: 24.0),
             
             child: Material
             (
@@ -70,7 +66,11 @@ class GenericButtonState extends State <GenericButton>
                 ),
                 color: Colors.transparent,
             ),
-            color: widget.backgroundColor
+            decoration: BoxDecoration
+            (
+                color: widget.backgroundColor,
+                borderRadius: BorderRadius.circular(10.0)
+            )
         );
     }
 }

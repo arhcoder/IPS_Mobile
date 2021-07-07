@@ -20,66 +20,65 @@ class Home extends StatelessWidget
         Color app_secundary_color = Colors.blue;
         Color font_primary_color = Colors.grey;
         Color font_secundary_color = Colors.blueGrey;
+        Color light_grey = Color(0xFFF2F2F2);
 
         return Obx (() => Container
         (
+            width: device_width,
+            height: device_height,
+
             child: Column
             (
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-
                 children:
                 [
-                    // Etiqueta que muestra el IP del dispositivo //
-                    Expanded
+                    // Panel que muestra la IP y localización //
+                    Flexible
                     (
-                        child: GenericDoubleLabel
+                        child: Column
                         (
-                            title: "IP de este dispositivo",
-                            text: "${controller.ip}",
-                            width: device_width - 80.0,
-                            height: 60.0,
-                            backgroundColor: Color(0xFFF2F2F2),
-                            fontTitleColor: font_primary_color,
-                            fontTextColor: font_secundary_color
+                            children:
+                            [
+                                // Etiqueta que muestra el IP del dispositivo //
+                                Flexible
+                                (
+                                    child: GenericDoubleLabel
+                                    (
+                                        title: "IP de este dispositivo:",
+                                        text: "${controller.ip}",
+                                        width: device_width - 80.0,
+                                        height: 60.0,
+                                        backgroundColor: light_grey,
+                                        fontTitleColor: font_primary_color,
+                                        fontTextColor: font_secundary_color
+                                    )
+                                ),
+                                // Etiqueta que muestra la localización de la IP //
+                                Flexible
+                                (
+                                    child: GenericDoubleLabel
+                                    (
+                                        title: "Localización de la IP:",
+                                        text: "${controller.location}",
+                                        width: device_width - 80.0,
+                                        height: 100.0,
+                                        backgroundColor: light_grey,
+                                        fontTitleColor: font_primary_color,
+                                        fontTextColor: font_secundary_color
+                                    )
+                                )
+                            ]
                         )
                     ),
                     // Botón para obtener la ip del dispositivo //
-                    Expanded
+                    Flexible
                     (
                         child: GenericButton
                         (
                             text: "Obtener IP",
-                            method: controller.getIp(),
-                            width: 300,
-                            height: 30.0,
-                            backgroundColor: app_secundary_color,
-                            fontColor: Colors.white,
-                        )
-                    ),
-                    // Etiqueta que muestra la localización de la IP //
-                    Expanded
-                    (
-                        child: GenericDoubleLabel
-                        (
-                            title: "Localización de la IP",
-                            text: "${controller.location}",
+                            method: controller.getIpInformation(),
                             width: device_width - 80.0,
-                            height: 80.0,
-                            backgroundColor: Color(0xFFF2F2F2),
-                            fontTitleColor: font_primary_color,
-                            fontTextColor: font_secundary_color
-                        )
-                    ),
-                    // Botón para obtener la localización de la IP //
-                    Expanded
-                    (
-                        child: GenericButton
-                        (
-                            text: "Obtener Localización",
-                            method: controller.geoIp(controller.getIp()),
-                            width: device_width - 80.0,
-                            height: 30.0,
+                            height: 60.0,
                             backgroundColor: app_secundary_color,
                             fontColor: Colors.white,
                         )

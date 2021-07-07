@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'Screens/Home.dart';
 
 void main()
 {
+    // Se hace transparente la barra superior de Android //
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle
+        (
+            statusBarColor: Colors.transparent,
+            statusBarBrightness: Brightness.light
+        )
+    );
     runApp(MyApp());
 }
 
@@ -14,6 +23,8 @@ class MyApp extends StatelessWidget
     {
         return MaterialApp
         (
+            debugShowCheckedModeBanner: false,
+            
             title: 'IP SHOWER',
             home: Scaffold
             (

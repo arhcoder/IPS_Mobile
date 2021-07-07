@@ -6,10 +6,10 @@ import 'package:http/http.dart' as http;
 class IPController extends GetxController
 {
     var ip = "-".obs;
-    var location = "".obs;
+    var location = "-".obs;
 
     // Métodos //
-    getIp()
+    getIpInformation()
     {
         /// Accede al API de Ipify y cambia la IP del dispositivo actual ///
         final url = "https://api.ipify.org/?format=json";
@@ -19,6 +19,7 @@ class IPController extends GetxController
             final APImap = jsonDecode(response.body);
             ip.value = "${APImap['ip']}";
         });
+        geoIp(ip.value);
     }
 
     geoIp(String ip)

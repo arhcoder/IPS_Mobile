@@ -31,12 +31,6 @@ class GenericDoubleLabel extends StatelessWidget
     {
         return Container
         (
-            margin: EdgeInsets.only
-            (
-                top: 20.0,
-                bottom: 20.0
-            ),
-
             child: Column
             (
                 children:
@@ -54,7 +48,14 @@ class GenericDoubleLabel extends StatelessWidget
                     (
                         width: this.width,
                         height: this.height,
-                        decoration: BoxDecoration(color: this.backgroundColor),
+                        margin: EdgeInsets.only(top: 14.0),
+
+                        decoration: BoxDecoration
+                        (
+                            color: this.backgroundColor,
+                            borderRadius: BorderRadius.circular(10.0)
+                        ),
+
                         child: Center
                         (
                             child: Text
@@ -65,7 +66,8 @@ class GenericDoubleLabel extends StatelessWidget
                                     color: this.fontTextColor,
                                     fontSize: 20.0,
                                     fontWeight: FontWeight.bold
-                                )
+                                ),
+                                textAlign: TextAlign.center,
                             )
                         )
                     )
